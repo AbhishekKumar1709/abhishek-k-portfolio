@@ -9,6 +9,8 @@
 <meta property="og:title" content="Abhishek Kumar — Software Developer">
 <meta property="og:description" content="Computer Science Engineer & software developer portfolio — mobile apps, computer vision, and web projects.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://abhishekkumar1709.github.io/">
+<link rel="canonical" href="https://abhishekkumar1709.github.io/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%90%3C/text%3E%3C/svg%3E">
 <style>
   :root {
@@ -812,6 +814,51 @@
   }
   .cert-view svg { width: 10px; height: 10px; }
 
+  .cert-modal { position: fixed; inset: 0; z-index: 200; display: none; }
+  .cert-modal.is-open { display: block; }
+  .cert-modal-backdrop { position: absolute; inset: 0; background: rgba(8,12,20,0.6); backdrop-filter: blur(2px); }
+  .cert-modal-panel {
+    position: relative;
+    margin: 4vh auto;
+    width: min(880px, 92vw);
+    height: 90vh;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .cert-modal-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--line);
+  }
+  .cert-modal-title { font-size: 14px; font-weight: 600; margin: 0; color: var(--ink); }
+  .cert-modal-actions { display: flex; align-items: center; gap: 16px; flex: none; }
+  .cert-modal-open { font-family: var(--mono); font-size: 11.5px; color: var(--blue); text-decoration: none; white-space: nowrap; }
+  .cert-modal-close {
+    width: 28px; height: 28px;
+    border-radius: 7px;
+    border: 1px solid var(--line);
+    background: var(--surface-2);
+    color: var(--ink);
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cert-modal-close:hover { border-color: var(--blue); color: var(--blue); }
+  .cert-modal-body { flex: 1; overflow: auto; background: var(--surface-2); display: flex; align-items: flex-start; justify-content: center; padding: 20px; }
+  .cert-modal-img { max-width: 100%; height: auto; border-radius: 6px; box-shadow: var(--shadow); }
+  body.cert-modal-lock { overflow: hidden; }
+
   .lang-row { display: flex; gap: 24px; font-family: var(--mono); font-size: 14px; color: var(--ink-soft); }
 
   /* Footer / contact */
@@ -1140,7 +1187,7 @@
       <div class="edu-item reveal" style="margin-top:36px;">
         <p class="skill-label" style="margin-bottom: 14px;">Certifications</p>
         <div class="cert-grid">
-          <a class="cert-card" href="certs/deep-learning-nptel.pdf" target="_blank" rel="noopener">
+          <a class="cert-card" href="certs/deep-learning-nptel.pdf" data-cert-trigger data-cert-image="certs/deep-learning-nptel.png" target="_blank" rel="noopener">
             <span class="cert-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5L7 21l5-3 5 3-1.5-8.5"/></svg></span>
             <span class="cert-body">
               <p class="cert-title">Deep Learning</p>
@@ -1148,7 +1195,7 @@
               <span class="cert-view">View certificate <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
             </span>
           </a>
-          <a class="cert-card" href="certs/dsa-infosys.pdf" target="_blank" rel="noopener">
+          <a class="cert-card" href="certs/dsa-infosys.pdf" data-cert-trigger data-cert-image="certs/dsa-infosys.png" target="_blank" rel="noopener">
             <span class="cert-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5L7 21l5-3 5 3-1.5-8.5"/></svg></span>
             <span class="cert-body">
               <p class="cert-title">Data Structures &amp; Algorithms using Java</p>
@@ -1156,7 +1203,7 @@
               <span class="cert-view">View certificate <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
             </span>
           </a>
-          <a class="cert-card" href="certs/dsa-chandigarh-university.pdf" target="_blank" rel="noopener">
+          <a class="cert-card" href="certs/dsa-chandigarh-university.pdf" data-cert-trigger data-cert-image="certs/dsa-chandigarh-university.png" target="_blank" rel="noopener">
             <span class="cert-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5L7 21l5-3 5 3-1.5-8.5"/></svg></span>
             <span class="cert-body">
               <p class="cert-title">Mastering Data Structures &amp; Algorithms</p>
@@ -1201,6 +1248,22 @@
     <a href="mailto:abhishekbaghel406@gmail.com">Email</a>
   </div>
 </footer>
+
+<div class="cert-modal" id="certModal" aria-hidden="true">
+  <div class="cert-modal-backdrop" data-cert-close></div>
+  <div class="cert-modal-panel" role="dialog" aria-modal="true" aria-labelledby="certModalTitle">
+    <div class="cert-modal-head">
+      <p class="cert-modal-title" id="certModalTitle"></p>
+      <div class="cert-modal-actions">
+        <a class="cert-modal-open" id="certModalOpen" href="#" target="_blank" rel="noopener">Open in new tab ↗</a>
+        <button class="cert-modal-close" type="button" data-cert-close aria-label="Close">&times;</button>
+      </div>
+    </div>
+    <div class="cert-modal-body">
+      <img class="cert-modal-img" id="certModalImg" alt="Certificate preview">
+    </div>
+  </div>
+</div>
 
 <script>
   (function () {
@@ -1302,6 +1365,46 @@
       }
       track.innerHTML = html;
     }
+
+    /* Certificate modal */
+    var certModal = document.getElementById('certModal');
+    var certImg = document.getElementById('certModalImg');
+    var certTitle = document.getElementById('certModalTitle');
+    var certOpen = document.getElementById('certModalOpen');
+    var lastFocused = null;
+
+    function openCertModal(card) {
+      var href = card.getAttribute('href');
+      var imgSrc = card.getAttribute('data-cert-image');
+      var titleEl = card.querySelector('.cert-title');
+      lastFocused = document.activeElement;
+      certImg.src = imgSrc || href;
+      certTitle.textContent = titleEl ? titleEl.textContent : 'Certificate';
+      certOpen.href = href;
+      certModal.classList.add('is-open');
+      certModal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('cert-modal-lock');
+      certModal.querySelector('.cert-modal-close').focus();
+    }
+    function closeCertModal() {
+      certModal.classList.remove('is-open');
+      certModal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('cert-modal-lock');
+      certImg.src = '';
+      if (lastFocused) { lastFocused.focus(); }
+    }
+    document.querySelectorAll('[data-cert-trigger]').forEach(function (card) {
+      card.addEventListener('click', function (e) {
+        e.preventDefault();
+        openCertModal(card);
+      });
+    });
+    document.querySelectorAll('[data-cert-close]').forEach(function (el) {
+      el.addEventListener('click', closeCertModal);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && certModal.classList.contains('is-open')) { closeCertModal(); }
+    });
 
   })();
 </script>
