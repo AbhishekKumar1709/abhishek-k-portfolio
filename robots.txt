@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://abhishekkumar1709.github.io/sitemap.xml
+Sitemap: https://abhishekkumar1709.github.io/abhishek-k-portfolio/sitemap.xml
