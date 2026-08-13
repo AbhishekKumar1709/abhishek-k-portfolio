@@ -857,7 +857,26 @@
   }
   .cert-modal-close:hover { border-color: var(--blue); color: var(--blue); }
   .cert-modal-body { flex: 1; overflow: auto; background: var(--surface-2); display: flex; align-items: flex-start; justify-content: center; padding: 20px; }
-  .cert-modal-img { max-width: 100%; height: auto; border-radius: 6px; box-shadow: var(--shadow); }
+  .cert-img-wrap { position: relative; max-width: 100%; }
+  .cert-modal-img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: var(--shadow);
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
+  }
+  .cert-watermark {
+    position: absolute;
+    inset: 0;
+    border-radius: 6px;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='340' height='170'%3E%3Ctext x='0' y='100' font-size='19' font-family='-apple-system,Helvetica,Arial,sans-serif' fill='rgba(0,0,0,0.09)' transform='rotate(-28 170 85)'%3EAbhishek Kumar%3C/text%3E%3C/svg%3E");
+    background-repeat: repeat;
+  }
   body.cert-modal-lock { overflow: hidden; }
 
   .lang-row { display: flex; gap: 24px; font-family: var(--mono); font-size: 14px; color: var(--ink-soft); }
@@ -1215,6 +1234,122 @@
         </div>
       </div>
 
+      <div class="edu-item reveal" style="margin-top:36px;">
+        <p class="skill-label" style="margin-bottom: 14px;">Coursera</p>
+        <div class="cert-grid">
+          <a class="cert-card" href="certs/coursera/data-structures-and-algorithms-microsoft.pdf" data-cert-trigger data-cert-image="certs/coursera/data-structures-and-algorithms-microsoft.png" target="_blank" rel="noopener">
+            <span class="cert-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5L7 21l5-3 5 3-1.5-8.5"/></svg></span>
+            <span class="cert-body">
+              <p class="cert-title">Data Structures and Algorithms</p>
+              <p class="cert-issuer">Microsoft · 2025</p>
+              <span class="cert-view">View certificate <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+            </span>
+          </a>
+          <a class="cert-card" href="certs/coursera/data-structures-ucsandiego.pdf" data-cert-trigger data-cert-image="certs/coursera/data-structures-ucsandiego.png" target="_blank" rel="noopener">
+            <span class="cert-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5L7 21l5-3 5 3-1.5-8.5"/></svg></span>
+            <span class="cert-body">
+              <p class="cert-title">Data Structures</p>
+              <p class="cert-issuer">University of California San Diego · 2024</p>
+              <span class="cert-view">View certificate <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+            </span>
+          </a>
+          <a class="cert-card" href="certs/coursera/databases-and-sql-for-data-science-ibm.pdf" data-cert-trigger data-cert-image="certs/coursera/databases-and-sql-for-data-science-ibm.png" target="_blank" rel="noopener">
+            <span class="cert-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5L7 21l5-3 5 3-1.5-8.5"/></svg></span>
+            <span class="cert-body">
+              <p class="cert-title">Databases and SQL for Data Science with Python</p>
+              <p class="cert-issuer">IBM · with Honors · 2024</p>
+              <span class="cert-view">View certificate <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+            </span>
+          </a>
+          <a class="cert-card" href="certs/coursera/java-programming-for-beginners-ibm.pdf" data-cert-trigger data-cert-image="certs/coursera/java-programming-for-beginners-ibm.png" target="_blank" rel="noopener">
+            <span class="cert-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5L7 21l5-3 5 3-1.5-8.5"/></svg></span>
+            <span class="cert-body">
+              <p class="cert-title">Java Programming for Beginners</p>
+              <p class="cert-issuer">IBM · 2025</p>
+              <span class="cert-view">View certificate <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+            </span>
+          </a>
+          <a class="cert-card" href="certs/coursera/introduction-to-web-development-microsoft.pdf" data-cert-trigger data-cert-image="certs/coursera/introduction-to-web-development-microsoft.png" target="_blank" rel="noopener">
+            <span class="cert-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5L7 21l5-3 5 3-1.5-8.5"/></svg></span>
+            <span class="cert-body">
+              <p class="cert-title">Introduction to Web Development</p>
+              <p class="cert-issuer">Microsoft · 2025</p>
+              <span class="cert-view">View certificate <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+            </span>
+          </a>
+          <a class="cert-card" href="certs/coursera/nosql-big-data-spark-foundations-ibm.pdf" data-cert-trigger data-cert-image="certs/coursera/nosql-big-data-spark-foundations-ibm.png" target="_blank" rel="noopener">
+            <span class="cert-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5L7 21l5-3 5 3-1.5-8.5"/></svg></span>
+            <span class="cert-body">
+              <p class="cert-title">NoSQL, Big Data, and Spark Foundations</p>
+              <p class="cert-issuer">IBM · Specialization · 2024</p>
+              <span class="cert-view">View certificate <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+            </span>
+          </a>
+          <a class="cert-card" href="certs/coursera/cybersecurity-attack-and-defense-fundamentals-eccouncil.pdf" data-cert-trigger data-cert-image="certs/coursera/cybersecurity-attack-and-defense-fundamentals-eccouncil.png" target="_blank" rel="noopener">
+            <span class="cert-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5L7 21l5-3 5 3-1.5-8.5"/></svg></span>
+            <span class="cert-body">
+              <p class="cert-title">Cybersecurity Attack and Defense Fundamentals</p>
+              <p class="cert-issuer">EC-Council · Specialization · 2024</p>
+              <span class="cert-view">View certificate <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+            </span>
+          </a>
+          <a class="cert-card" href="certs/coursera/machine-learning-introduction-for-everyone-ibm.pdf" data-cert-trigger data-cert-image="certs/coursera/machine-learning-introduction-for-everyone-ibm.png" target="_blank" rel="noopener">
+            <span class="cert-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5L7 21l5-3 5 3-1.5-8.5"/></svg></span>
+            <span class="cert-body">
+              <p class="cert-title">Machine Learning Introduction for Everyone</p>
+              <p class="cert-issuer">IBM · 2024</p>
+              <span class="cert-view">View certificate <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div class="edu-item reveal" style="margin-top:36px;">
+        <p class="skill-label" style="margin-bottom: 14px;">LinkedIn Learning</p>
+        <div class="cert-grid">
+          <a class="cert-card" href="certs/linkedin/agile-foundations.pdf" data-cert-trigger data-cert-image="certs/linkedin/agile-foundations.png" target="_blank" rel="noopener">
+            <span class="cert-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5L7 21l5-3 5 3-1.5-8.5"/></svg></span>
+            <span class="cert-body">
+              <p class="cert-title">Agile Foundations</p>
+              <p class="cert-issuer">LinkedIn Learning · 2022</p>
+              <span class="cert-view">View certificate <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+            </span>
+          </a>
+          <a class="cert-card" href="certs/linkedin/critical-thinking-and-problem-solving.pdf" data-cert-trigger data-cert-image="certs/linkedin/critical-thinking-and-problem-solving.png" target="_blank" rel="noopener">
+            <span class="cert-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5L7 21l5-3 5 3-1.5-8.5"/></svg></span>
+            <span class="cert-body">
+              <p class="cert-title">Critical Thinking and Problem Solving</p>
+              <p class="cert-issuer">LinkedIn Learning · 2022</p>
+              <span class="cert-view">View certificate <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+            </span>
+          </a>
+          <a class="cert-card" href="certs/linkedin/technical-writing-quick-start-guides.pdf" data-cert-trigger data-cert-image="certs/linkedin/technical-writing-quick-start-guides.png" target="_blank" rel="noopener">
+            <span class="cert-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5L7 21l5-3 5 3-1.5-8.5"/></svg></span>
+            <span class="cert-body">
+              <p class="cert-title">Technical Writing: Quick Start Guides</p>
+              <p class="cert-issuer">LinkedIn Learning · 2023</p>
+              <span class="cert-view">View certificate <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+            </span>
+          </a>
+          <a class="cert-card" href="certs/linkedin/teamwork-foundations.pdf" data-cert-trigger data-cert-image="certs/linkedin/teamwork-foundations.png" target="_blank" rel="noopener">
+            <span class="cert-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5L7 21l5-3 5 3-1.5-8.5"/></svg></span>
+            <span class="cert-body">
+              <p class="cert-title">Teamwork Foundations</p>
+              <p class="cert-issuer">LinkedIn Learning · 2022</p>
+              <span class="cert-view">View certificate <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+            </span>
+          </a>
+          <a class="cert-card" href="certs/linkedin/essentials-of-team-collaboration.pdf" data-cert-trigger data-cert-image="certs/linkedin/essentials-of-team-collaboration.png" target="_blank" rel="noopener">
+            <span class="cert-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5L7 21l5-3 5 3-1.5-8.5"/></svg></span>
+            <span class="cert-body">
+              <p class="cert-title">Essentials of Team Collaboration</p>
+              <p class="cert-issuer">LinkedIn Learning · 2022</p>
+              <span class="cert-view">View certificate <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+            </span>
+          </a>
+        </div>
+      </div>
+
       <div class="edu-item reveal" style="margin-top:36px; margin-bottom: 0;">
         <p class="skill-label">Languages</p>
         <div class="lang-row"><span>English</span><span>Hindi</span></div>
@@ -1261,7 +1396,10 @@
       </div>
     </div>
     <div class="cert-modal-body">
-      <img class="cert-modal-img" id="certModalImg" alt="Certificate preview">
+      <div class="cert-img-wrap">
+        <img class="cert-modal-img" id="certModalImg" alt="Certificate preview" draggable="false">
+        <div class="cert-watermark" aria-hidden="true"></div>
+      </div>
     </div>
   </div>
 </div>
@@ -1406,6 +1544,10 @@
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && certModal.classList.contains('is-open')) { closeCertModal(); }
     });
+    certModal.querySelector('.cert-modal-body').addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+    });
+    certImg.addEventListener('dragstart', function (e) { e.preventDefault(); });
 
   })();
 </script>
