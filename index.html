@@ -662,6 +662,19 @@
   .project-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(16,24,38,0.12); }
   .project-card.cat-vision { --accent: var(--amber); }
   .project-card.cat-web { --accent: var(--coral); }
+  .project-card.cat-realtime { --accent: var(--green); }
+  .project-link {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 12px;
+  }
+  .project-link svg { width: 10px; height: 10px; }
+  .project-link:hover { text-decoration: underline; }
   .project-visual {
     height: 96px;
     border-bottom: 1px solid var(--line);
@@ -723,6 +736,19 @@
   .viz-browser-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 6px; }
   .viz-browser-body span { display: block; height: 4px; border-radius: 2px; background: var(--surface-2); }
   .viz-browser-body span.accent { background: color-mix(in srgb, var(--accent) 45%, var(--surface-2)); width: 40%; }
+
+  .viz-chat { position: absolute; inset: 0; padding: 16px 20px; display: flex; flex-direction: column; justify-content: center; gap: 8px; }
+  .viz-bubble { display: block; height: 10px; border-radius: 6px; background: var(--surface); border: 1px solid var(--line); width: 52%; }
+  .viz-bubble.mine { align-self: flex-end; width: 40%; background: color-mix(in srgb, var(--accent) 65%, var(--surface)); border-color: transparent; }
+  .viz-call-dot { position: absolute; top: 12px; right: 16px; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+  .viz-call-dot::after {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 1.5px solid var(--accent);
+    animation: pulse-ring 2.2s ease-out infinite;
+  }
   @media (prefers-reduced-motion: reduce) {
     .viz-dot::after, .viz-scanbeam { animation: none; }
   }
@@ -1066,6 +1092,28 @@
         <span class="rule"></span>
       </div>
       <div class="project-list">
+        <article class="project-card cat-realtime reveal">
+          <div class="project-visual">
+            <div class="viz-chat" aria-hidden="true">
+              <span class="viz-bubble"></span>
+              <span class="viz-bubble mine"></span>
+              <span class="viz-bubble" style="width: 38%;"></span>
+            </div>
+            <span class="viz-call-dot" aria-hidden="true"></span>
+          </div>
+          <div class="project-body">
+            <p class="project-tag">Full-stack · Real-time systems</p>
+            <h3 class="project-title">SerenQuad — Real-Time Messaging &amp; Video Calling Platform</h3>
+            <ul class="bullets">
+              <li>Built a full-stack monorepo app with a React 19/TypeScript frontend and a Node.js/Express 5 backend backed by PostgreSQL via Prisma.</li>
+              <li>Implemented real-time one-to-one messaging with JWT-authenticated Socket.IO rooms and peer-to-peer video calling over WebRTC.</li>
+              <li>Designed secure auth with JWT access tokens, rotating refresh tokens, and Argon2 password hashing.</li>
+            </ul>
+            <div class="stack-row">
+              <span class="stack-chip">React</span><span class="stack-chip">Node.js</span><span class="stack-chip">PostgreSQL</span><span class="stack-chip">Socket.IO</span><span class="stack-chip">WebRTC</span>
+            </div>
+          </div>
+        </article>
         <article class="project-card reveal">
           <div class="project-visual">
             <svg class="viz-path" viewBox="0 0 300 96" preserveAspectRatio="none" aria-hidden="true">
@@ -1108,6 +1156,7 @@
             <div class="stack-row">
               <span class="stack-chip">Python</span><span class="stack-chip">OpenCV</span><span class="stack-chip">Tesseract OCR</span>
             </div>
+            <a class="project-link" href="https://github.com/AbhishekKumar1709/couresra-" target="_blank" rel="noopener">View on GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
           </div>
         </article>
         <article class="project-card cat-web reveal">
@@ -1123,14 +1172,16 @@
             </div>
           </div>
           <div class="project-body">
-            <p class="project-tag">Web · Frontend</p>
-            <h3 class="project-title">Resume Builder</h3>
+            <p class="project-tag">Web · Creative tools</p>
+            <h3 class="project-title">GIF Studio</h3>
             <ul class="bullets">
-              <li>Practiced core web development by building structured resume content, readable layouts, and maintainable components.</li>
+              <li>Built a browser-based GIF creation tool with video/image upload, frame extraction via ffmpeg.wasm, drag-and-drop reordering, filters, and AI-generated frames.</li>
+              <li>Implemented GIF encoding with gif.js and a responsive UI using React, TypeScript, and Tailwind CSS.</li>
             </ul>
             <div class="stack-row">
-              <span class="stack-chip">HTML</span><span class="stack-chip">CSS</span><span class="stack-chip">JavaScript</span>
+              <span class="stack-chip">React</span><span class="stack-chip">TypeScript</span><span class="stack-chip">Vite</span><span class="stack-chip">Tailwind CSS</span><span class="stack-chip">ffmpeg.wasm</span>
             </div>
+            <a class="project-link" href="https://github.com/AbhishekKumar1709/gif-generator" target="_blank" rel="noopener">View on GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
           </div>
         </article>
       </div>
