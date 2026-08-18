@@ -89,14 +89,25 @@
     font-size: 16px;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    position: relative;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image:
+      repeating-linear-gradient(90deg, color-mix(in srgb, var(--blue) 6%, transparent) 0, color-mix(in srgb, var(--blue) 6%, transparent) 1px, transparent 1px, transparent 64px),
+      repeating-linear-gradient(0deg, color-mix(in srgb, var(--blue) 6%, transparent) 0, color-mix(in srgb, var(--blue) 6%, transparent) 1px, transparent 1px, transparent 64px);
+    pointer-events: none;
   }
 
   a { color: inherit; }
 
   .wrap {
-    max-width: 880px;
+    max-width: 1140px;
     margin: 0 auto;
-    padding: 0 28px;
+    padding: 0 40px;
   }
 
   /* ---------- NAV ---------- */
@@ -109,9 +120,9 @@
     border-bottom: 1px solid var(--line);
   }
   .nav-inner {
-    max-width: 880px;
+    max-width: 1140px;
     margin: 0 auto;
-    padding: 16px 28px;
+    padding: 16px 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
