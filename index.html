@@ -720,39 +720,55 @@
 
   /* Coding profiles */
   .profile-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
   }
   .profile-card {
+    --accent: var(--blue);
+    position: relative;
+    flex: 1 1 210px;
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 14px 16px;
+    gap: 14px;
+    padding: 18px 18px;
     border: 1px solid var(--line);
-    border-radius: 10px;
+    border-radius: 12px;
     background: var(--surface);
     text-decoration: none;
     color: var(--ink);
-    transition: border-color 0.15s ease, transform 0.15s ease;
+    overflow: hidden;
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   }
-  .profile-card:hover { border-color: var(--blue); transform: translateY(-1px); }
+  .profile-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent);
+  }
+  .profile-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: var(--shadow); }
+  .profile-card.p-github { --accent: var(--violet); }
+  .profile-card.p-hackerrank { --accent: var(--green); }
+  .profile-card.p-leetcode { --accent: var(--amber); }
+  .profile-card.p-gfg { --accent: var(--coral); }
+  .profile-card.p-codechef { --accent: var(--blue); }
   .profile-badge {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 700;
-    width: 34px;
-    height: 34px;
+    width: 40px;
+    height: 40px;
     flex: none;
-    border-radius: 7px;
-    background: var(--blue-soft);
-    color: var(--blue);
+    border-radius: 9px;
+    background: color-mix(in srgb, var(--accent) 16%, var(--surface-2));
+    color: var(--accent);
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  .profile-name { font-size: 14px; font-weight: 600; }
-  .profile-handle { font-family: var(--mono); font-size: 11.5px; color: var(--ink-faint); }
+  .profile-name { font-size: 15px; font-weight: 600; }
+  .profile-handle { font-family: var(--mono); font-size: 11.5px; color: var(--ink-faint); margin-top: 2px; }
 
   /* Education */
   .edu-item { margin-bottom: 26px; }
@@ -1190,23 +1206,23 @@
         <span class="rule"></span>
       </div>
       <div class="profile-grid reveal">
-        <a class="profile-card" href="https://github.com/AbhishekKumar1709" target="_blank" rel="noopener">
+        <a class="profile-card p-github" href="https://github.com/AbhishekKumar1709" target="_blank" rel="noopener">
           <span class="profile-badge">GH</span>
           <span><span class="profile-name">GitHub</span><br><span class="profile-handle">AbhishekKumar1709</span></span>
         </a>
-        <a class="profile-card" href="https://www.hackerrank.com/profile/abhi20BCS7356" target="_blank" rel="noopener">
+        <a class="profile-card p-hackerrank" href="https://www.hackerrank.com/profile/abhi20BCS7356" target="_blank" rel="noopener">
           <span class="profile-badge">HR</span>
           <span><span class="profile-name">HackerRank</span><br><span class="profile-handle">abhi20BCS7356</span></span>
         </a>
-        <a class="profile-card" href="https://leetcode.com/u/Abhishek1127/" target="_blank" rel="noopener">
+        <a class="profile-card p-leetcode" href="https://leetcode.com/u/Abhishek1127/" target="_blank" rel="noopener">
           <span class="profile-badge">LC</span>
           <span><span class="profile-name">LeetCode</span><br><span class="profile-handle">Abhishek1127</span></span>
         </a>
-        <a class="profile-card" href="https://www.geeksforgeeks.org/profile/abhishekbcxms" target="_blank" rel="noopener">
+        <a class="profile-card p-gfg" href="https://www.geeksforgeeks.org/profile/abhishekbcxms" target="_blank" rel="noopener">
           <span class="profile-badge">GFG</span>
           <span><span class="profile-name">GeeksforGeeks</span><br><span class="profile-handle">abhishekbcxms</span></span>
         </a>
-        <a class="profile-card" href="https://www.codechef.com/users/pure_light_23" target="_blank" rel="noopener">
+        <a class="profile-card p-codechef" href="https://www.codechef.com/users/pure_light_23" target="_blank" rel="noopener">
           <span class="profile-badge">CC</span>
           <span><span class="profile-name">CodeChef</span><br><span class="profile-handle">pure_light_23</span></span>
         </a>
