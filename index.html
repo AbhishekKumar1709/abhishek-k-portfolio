@@ -327,6 +327,56 @@
     .laptop3d, .laptop-shadow, .code-line.typing, .code-line.typing::after, .laptop-led { animation: none; }
     .code-line.typing { width: 58%; }
   }
+  .desk-plant {
+    position: absolute;
+    right: -30px;
+    bottom: 6px;
+    width: 40px;
+    pointer-events: none;
+  }
+  .desk-plant .pot {
+    width: 26px; height: 18px;
+    margin: 0 auto;
+    background: linear-gradient(180deg, var(--coral), color-mix(in srgb, var(--coral) 70%, black));
+    border-radius: 2px 2px 8px 8px;
+  }
+  .desk-plant .leaves { position: relative; height: 30px; }
+  .desk-plant .leaves span {
+    position: absolute;
+    bottom: 0;
+    width: 8px; height: 26px;
+    background: var(--green);
+    border-radius: 50% 50% 50% 0;
+  }
+  .desk-plant .leaves span:nth-child(1) { left: 6px; transform: rotate(-18deg); }
+  .desk-plant .leaves span:nth-child(2) { left: 15px; height: 32px; }
+  .desk-plant .leaves span:nth-child(3) { left: 24px; transform: rotate(18deg); }
+  @media (max-width: 980px) {
+    .desk-plant { display: none; }
+  }
+
+  .stats-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px 30px;
+    margin-top: 34px;
+    padding-top: 26px;
+    border-top: 1px solid var(--line);
+  }
+  .stat-item { display: flex; align-items: center; gap: 11px; }
+  .stat-icon {
+    width: 36px; height: 36px;
+    border-radius: 9px;
+    background: color-mix(in srgb, var(--accent) 15%, var(--surface-2));
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+  }
+  .stat-icon svg { width: 17px; height: 17px; }
+  .stat-value { font-family: var(--serif); font-size: 22px; font-weight: 400; line-height: 1; margin: 0 0 3px; }
+  .stat-label { font-family: var(--mono); font-size: 10.5px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.04em; }
   .hero-ghost {
     position: absolute;
     top: -4%;
@@ -974,6 +1024,10 @@
         </div>
         <div class="laptop-base"><span class="laptop-led"></span></div>
         <div class="laptop-shadow"></div>
+        <div class="desk-plant">
+          <div class="leaves"><span></span><span></span><span></span></div>
+          <div class="pot"></div>
+        </div>
       </div>
     </div>
     <div class="wrap hero-inner">
@@ -998,6 +1052,24 @@
         <a class="btn btn-primary" href="mailto:abhishekbaghel406@gmail.com">Email me</a>
         <a class="btn btn-ghost" href="https://www.linkedin.com/in/abhishek-kumar-aa95551b1/" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn btn-ghost" href="https://github.com/AbhishekKumar1709" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <div class="stats-row">
+        <div class="stat-item" style="--accent: var(--blue);">
+          <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></span>
+          <div><p class="stat-value">5+</p><p class="stat-label">Projects Built</p></div>
+        </div>
+        <div class="stat-item" style="--accent: var(--amber);">
+          <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5L7 21l5-3 5 3-1.5-8.5"/></svg></span>
+          <div><p class="stat-value">16+</p><p class="stat-label">Certifications</p></div>
+        </div>
+        <div class="stat-item" style="--accent: var(--coral);">
+          <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+          <div><p class="stat-value">6 mo</p><p class="stat-label">Industry Experience</p></div>
+        </div>
+        <div class="stat-item" style="--accent: var(--green);">
+          <span class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></span>
+          <div><p class="stat-value">5</p><p class="stat-label">Coding Platforms</p></div>
+        </div>
       </div>
     </div>
     <div class="scroll-cue" aria-hidden="true">Scroll <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v14M6 13l6 6 6-6"/></svg></div>
