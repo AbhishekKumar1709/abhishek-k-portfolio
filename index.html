@@ -202,191 +202,32 @@
     mask-image: radial-gradient(ellipse 65% 60% at 68% 48%, black, transparent 78%);
     pointer-events: none;
   }
-  /* 3D laptop */
-  .laptop-scene {
+  .hero-photo-wrap {
     position: absolute;
-    right: 3%;
-    top: 52%;
-    transform: translateY(-50%);
-    width: 340px;
-    perspective: 1400px;
-    pointer-events: none;
-  }
-  .laptop-scene::before {
-    content: "";
-    position: absolute;
-    inset: -60px -40px;
-    background:
-      radial-gradient(closest-side, color-mix(in srgb, var(--violet) 30%, transparent), transparent),
-      radial-gradient(closest-side at 80% 80%, color-mix(in srgb, var(--blue) 24%, transparent), transparent);
-    filter: blur(30px);
-    z-index: -1;
-  }
-  .laptop3d {
-    position: relative;
-    width: 300px;
-    margin: 0 auto;
-    transform-style: preserve-3d;
-    animation: laptopFloat 7s ease-in-out infinite;
-  }
-  @keyframes laptopFloat {
-    0%, 100% { transform: rotateX(12deg) rotateY(-24deg) rotateZ(-1.5deg) translateY(0); }
-    50% { transform: rotateX(9deg) rotateY(-17deg) rotateZ(-1.5deg) translateY(-14px); }
-  }
-  .laptop-shadow {
-    position: absolute;
-    left: 50%;
-    bottom: -34px;
-    width: 260px;
-    height: 34px;
-    margin-left: -130px;
-    background: radial-gradient(ellipse, color-mix(in srgb, var(--ink) 45%, transparent), transparent 72%);
-    filter: blur(4px);
-    animation: shadowPulse 7s ease-in-out infinite;
-  }
-  @keyframes shadowPulse {
-    0%, 100% { opacity: 0.5; transform: translateX(-50%) scale(1); }
-    50% { opacity: 0.3; transform: translateX(-50%) scale(0.88); }
-  }
-  .laptop-screen-outer {
-    width: 300px;
-    height: 192px;
-    padding: 10px;
-    border-radius: 16px 16px 5px 5px;
-    background: linear-gradient(150deg, var(--surface-2), var(--surface));
-    border: 1.5px solid var(--blue);
-    box-shadow: var(--shadow);
-    position: relative;
-  }
-  .laptop-camera {
-    position: absolute;
-    top: 4px; left: 50%;
-    width: 4px; height: 4px;
-    margin-left: -2px;
-    border-radius: 50%;
-    background: var(--ink-faint);
-  }
-  .laptop-display {
-    height: 100%;
-    border-radius: 7px;
-    background: linear-gradient(160deg, var(--bg), color-mix(in srgb, var(--blue) 14%, var(--bg)));
-    padding: 18px 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 11px;
-    overflow: hidden;
-  }
-  .code-line { height: 7px; border-radius: 4px; background: color-mix(in srgb, var(--blue) 55%, transparent); flex: none; }
-  .code-line.w1 { width: 68%; }
-  .code-line.w2 { width: 44%; background: color-mix(in srgb, var(--ink-soft) 55%, transparent); }
-  .code-line.w3 { width: 82%; }
-  .code-line.w4 { width: 36%; background: color-mix(in srgb, var(--ink-soft) 55%, transparent); }
-  .code-line.typing {
-    width: 0%;
-    background: var(--coral);
-    position: relative;
-    animation: typeLine 4.5s steps(24) infinite;
-  }
-  .code-line.typing::after {
-    content: "";
-    position: absolute;
-    right: -3px; top: -3.5px;
-    width: 2px; height: 13px;
-    background: var(--coral);
-    animation: blink 0.9s step-end infinite;
-  }
-  @keyframes typeLine {
-    0% { width: 0%; }
-    45% { width: 58%; }
-    65% { width: 58%; }
-    100% { width: 0%; }
-  }
-  .laptop-base {
-    width: 340px;
-    height: 16px;
-    margin-left: -20px;
-    background: linear-gradient(180deg, var(--surface-2), color-mix(in srgb, var(--ink) 8%, var(--surface-2)));
-    border: 1.5px solid var(--blue);
-    border-top: none;
-    border-radius: 3px 3px 16px 16px;
-    box-shadow: var(--shadow);
-    position: relative;
-  }
-  .laptop-base::before {
-    content: "";
-    position: absolute;
-    top: -1.5px; left: 50%;
-    width: 46px; height: 5px;
-    margin-left: -23px;
-    background: var(--bg);
-    border: 1.5px solid var(--blue);
-    border-top: none;
-    border-radius: 0 0 6px 6px;
-  }
-  .laptop-led {
-    position: absolute;
-    right: 14px; top: 5px;
-    width: 4px; height: 4px;
-    border-radius: 50%;
-    background: var(--green);
-    box-shadow: 0 0 6px var(--green);
-    animation: ledPulse 2.4s ease-in-out infinite;
-  }
-  @keyframes ledPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
-  @media (max-width: 980px) {
-    .laptop-scene { display: none; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .laptop3d, .laptop-shadow, .code-line.typing, .code-line.typing::after, .laptop-led { animation: none; }
-    .code-line.typing { width: 58%; }
-  }
-  .desk-plant {
-    position: absolute;
-    right: -30px;
-    bottom: 6px;
-    width: 40px;
-    pointer-events: none;
-  }
-  .desk-plant .pot {
-    width: 26px; height: 18px;
-    margin: 0 auto;
-    background: linear-gradient(180deg, var(--coral), color-mix(in srgb, var(--coral) 70%, black));
-    border-radius: 2px 2px 8px 8px;
-  }
-  .desk-plant .leaves { position: relative; height: 30px; }
-  .desk-plant .leaves span {
-    position: absolute;
+    top: 0;
+    right: 0;
     bottom: 0;
-    width: 8px; height: 26px;
-    background: var(--green);
-    border-radius: 50% 50% 50% 0;
-  }
-  .desk-plant .leaves span:nth-child(1) { left: 6px; transform: rotate(-18deg); }
-  .desk-plant .leaves span:nth-child(2) { left: 15px; height: 32px; }
-  .desk-plant .leaves span:nth-child(3) { left: 24px; transform: rotate(18deg); }
-  .desk-mug {
-    position: absolute;
-    right: -6px;
-    bottom: -30px;
-    width: 20px;
-    height: 18px;
-    background: linear-gradient(180deg, color-mix(in srgb, var(--violet) 65%, var(--surface-2)), color-mix(in srgb, var(--blue) 55%, var(--surface-2)));
-    border-radius: 3px 3px 5px 5px;
+    width: 46%;
+    min-width: 420px;
+    mask-image: linear-gradient(90deg, transparent, black 24%);
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 24%);
     pointer-events: none;
   }
-  .desk-mug::after {
+  .hero-photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 30% center;
+    display: block;
+  }
+  .hero-photo-wrap::after {
     content: "";
     position: absolute;
-    right: -6px;
-    top: 3px;
-    width: 7px;
-    height: 8px;
-    border: 2px solid color-mix(in srgb, var(--violet) 65%, var(--surface-2));
-    border-left: none;
-    border-radius: 0 5px 5px 0;
+    inset: 0;
+    background: linear-gradient(90deg, var(--bg), transparent 35%, transparent 70%, color-mix(in srgb, var(--bg) 35%, transparent));
   }
   @media (max-width: 980px) {
-    .desk-plant, .desk-mug { display: none; }
+    .hero-photo-wrap { display: none; }
   }
 
   .stats-row {
@@ -1049,26 +890,8 @@
   <header class="hero">
     <div class="hero-grid" aria-hidden="true"></div>
     <div class="hero-ghost" aria-hidden="true">&lt;engineer/&gt;</div>
-    <div class="laptop-scene" aria-hidden="true">
-      <div class="laptop3d">
-        <div class="laptop-screen-outer">
-          <span class="laptop-camera"></span>
-          <div class="laptop-display">
-            <span class="code-line w1"></span>
-            <span class="code-line w2"></span>
-            <span class="code-line w3"></span>
-            <span class="code-line w4"></span>
-            <span class="code-line typing"></span>
-          </div>
-        </div>
-        <div class="laptop-base"><span class="laptop-led"></span></div>
-        <div class="laptop-shadow"></div>
-        <div class="desk-plant">
-          <div class="leaves"><span></span><span></span><span></span></div>
-          <div class="pot"></div>
-        </div>
-        <div class="desk-mug"></div>
-      </div>
+    <div class="hero-photo-wrap" aria-hidden="true">
+      <img src="assets/hero-desk.jpg" alt="" loading="eager">
     </div>
     <div class="wrap hero-inner">
       <p class="eyebrow"><span class="rule"></span> Computer Science Engineer</p>
