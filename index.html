@@ -22,6 +22,7 @@
     --ink-soft: #4B5A6E;
     --ink-faint: #7C8AA0;
     --blue: #2452D9;
+    --violet: #7C6FF0;
     --blue-soft: #E4EAFB;
     --coral: #E8501F;
     --coral-soft: #FCE6DE;
@@ -43,6 +44,7 @@
       --ink-soft: #9CAABD;
       --ink-faint: #6C7B92;
       --blue: #7EA0F7;
+      --violet: #A99CFF;
       --blue-soft: #263760;
       --coral: #FF8560;
       --coral-soft: #402A1B;
@@ -61,6 +63,7 @@
     --ink-soft: #9CAABD;
     --ink-faint: #6C7B92;
     --blue: #7EA0F7;
+    --violet: #A99CFF;
     --blue-soft: #263760;
     --coral: #FF8560;
     --coral-soft: #402A1B;
@@ -209,6 +212,16 @@
     perspective: 1400px;
     pointer-events: none;
   }
+  .laptop-scene::before {
+    content: "";
+    position: absolute;
+    inset: -60px -40px;
+    background:
+      radial-gradient(closest-side, color-mix(in srgb, var(--violet) 30%, transparent), transparent),
+      radial-gradient(closest-side at 80% 80%, color-mix(in srgb, var(--blue) 24%, transparent), transparent);
+    filter: blur(30px);
+    z-index: -1;
+  }
   .laptop3d {
     position: relative;
     width: 300px;
@@ -351,8 +364,29 @@
   .desk-plant .leaves span:nth-child(1) { left: 6px; transform: rotate(-18deg); }
   .desk-plant .leaves span:nth-child(2) { left: 15px; height: 32px; }
   .desk-plant .leaves span:nth-child(3) { left: 24px; transform: rotate(18deg); }
+  .desk-mug {
+    position: absolute;
+    right: -6px;
+    bottom: -30px;
+    width: 20px;
+    height: 18px;
+    background: linear-gradient(180deg, color-mix(in srgb, var(--violet) 65%, var(--surface-2)), color-mix(in srgb, var(--blue) 55%, var(--surface-2)));
+    border-radius: 3px 3px 5px 5px;
+    pointer-events: none;
+  }
+  .desk-mug::after {
+    content: "";
+    position: absolute;
+    right: -6px;
+    top: 3px;
+    width: 7px;
+    height: 8px;
+    border: 2px solid color-mix(in srgb, var(--violet) 65%, var(--surface-2));
+    border-left: none;
+    border-radius: 0 5px 5px 0;
+  }
   @media (max-width: 980px) {
-    .desk-plant { display: none; }
+    .desk-plant, .desk-mug { display: none; }
   }
 
   .stats-row {
@@ -517,6 +551,7 @@
     gap: 7px;
   }
   .chip .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
+  .chip svg { width: 13px; height: 13px; color: var(--blue); flex: none; }
 
   .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
   .btn {
@@ -533,8 +568,12 @@
     transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
   }
   .btn:hover { transform: translateY(-1px); }
-  .btn-primary { background: var(--blue); color: #fff; }
-  .btn-primary:hover { background: color-mix(in srgb, var(--blue) 88%, black); }
+  .btn-primary {
+    background: linear-gradient(120deg, var(--blue), var(--violet));
+    color: #fff;
+    box-shadow: 0 6px 20px -6px color-mix(in srgb, var(--violet) 55%, transparent);
+  }
+  .btn-primary:hover { filter: brightness(1.08); transform: translateY(-2px); }
   .btn-ghost { border-color: var(--line); color: var(--ink); background: var(--surface); }
   .btn-ghost:hover { border-color: var(--blue); color: var(--blue); }
 
@@ -1028,6 +1067,7 @@
           <div class="leaves"><span></span><span></span><span></span></div>
           <div class="pot"></div>
         </div>
+        <div class="desk-mug"></div>
       </div>
     </div>
     <div class="wrap hero-inner">
@@ -1045,8 +1085,8 @@
       <p class="bio">I'm a Computer Science Engineering student who likes turning rough ideas into working software — mobile apps, computer vision tools, and code that's actually testable. Comfortable across the stack: Java and Python for core logic, Flutter and Firebase for mobile, and enough JavaScript to build a decent interface. I'd rather debug something properly than just make the error go away.</p>
       <div class="chip-row">
         <span class="chip"><span class="status-dot"></span> Open to opportunities</span>
-        <span class="chip">B.E. CSE, Chandigarh University · 2026</span>
-        <span class="chip">Kharar, Mohali, Punjab</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.1 2.7 2 6 2s6-.9 6-2v-5"/></svg> B.E. CSE, Chandigarh University · 2026</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Noida, Uttar Pradesh</span>
       </div>
       <div class="cta-row">
         <a class="btn btn-primary" href="mailto:abhishekbaghel406@gmail.com">Email me</a>
@@ -1617,7 +1657,7 @@
     var roles = ['Software Developer', 'Mobile App Builder', 'Applied Computer Vision', 'Problem Solver'];
     var roleEl = document.getElementById('roleLine');
     if (reduceMotion) {
-      roleEl.textContent = roles[0] + ' · Kharar, Mohali, Punjab';
+      roleEl.textContent = roles[0] + ' · Noida, Uttar Pradesh';
     } else {
       (function typewriter() {
         var roleIndex = 0, charIndex = 0, deleting = false;
